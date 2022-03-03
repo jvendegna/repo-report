@@ -1,6 +1,8 @@
 import argparse
 import os
 
+from analytics import analytics
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process some integers.")
     parser.add_argument(
@@ -23,4 +25,11 @@ if __name__ == "__main__":
     )
 
     args = parser.parse_args()
-    print(args)
+    
+    headers = {"Authorization": f"Bearer {args.githubToken}"}
+    query_vars = {"owner": args.owner, "repository": args.repo}
+
+    print("Running Repo Activity Query")
+    stats = analytics.construct_pr_stats(query_vars, headers)
+
+    print(stats)
