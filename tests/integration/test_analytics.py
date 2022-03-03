@@ -1,6 +1,7 @@
 from analytics import analytics
 import os
 
+
 def test_analytics_query_results():
     headers = {"Authorization": f"Bearer {os.environ.get('GITHUB_TOKEN')}"}
     query_vars = {
