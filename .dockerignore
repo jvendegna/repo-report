@@ -1,0 +1,6 @@
+*
+
+!requirements.txt
+!analytics/**
+!msg/**
+!main.py
